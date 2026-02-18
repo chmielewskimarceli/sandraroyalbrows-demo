@@ -1,0 +1,164 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --gold-main: #B38728;
+    --gold-bright: #E5C376;
+    --brown-dark: #4B3621;
+}
+
+.gold-text-gradient {
+    background: linear-gradient(to right, var(--gold-main), var(--gold-bright), var(--gold-main));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: shine 5s linear infinite;
+}
+
+.gold-btn {
+    background: linear-gradient(to right, var(--gold-main), var(--gold-bright), var(--gold-main));
+    background-size: 200% auto;
+    transition: 0.5s;
+    border: none;
+}
+
+.gold-btn:hover {
+    background-position: right center;
+    color: #fff;
+}
+
+.gold-btn-outline {
+    background: transparent;
+    color: var(--gold-main);
+    border: 2px solid var(--gold-main);
+    transition: all 0.3s ease;
+}
+
+.gold-btn-outline:hover {
+    background: var(--gold-main);
+    color: white;
+    box-shadow: 0 4px 15px rgba(179, 135, 40, 0.3);
+}
+
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--gold-main);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--gold-main);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+@keyframes shine {
+    to { background-position: 200% center; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.fade-in-right {
+    animation: fadeInRight 1s ease-out 0.3s forwards;
+    opacity: 0;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-1944px); } 
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 30s linear infinite;
+    will-change: transform;
+}
+
+.portfolio-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 8px;
+    flex-shrink: 0;
+    width: 300px;
+    height: 400px;
+    margin-right: 24px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(179, 135, 40, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-overlay i {
+    color: white;
+    font-size: 2rem;
+}
+
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.05);
+}
+
+#lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.95);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+#lightbox img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 8px;
+}
+
+
