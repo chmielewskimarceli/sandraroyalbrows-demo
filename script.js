@@ -42,7 +42,6 @@ const width = 1920;
 const height = 1080;
 const isMobile = window.innerWidth < 768;
 
-// Zostawiamy 20 linii niezależnie od urządzenia!
 const totalLines = 20; 
 
 const rand = (min, max) => Math.random() * (max - min) + min;
@@ -53,7 +52,6 @@ const updateMouseY = (clientY) => {
     mouseY = (clientY / window.innerHeight) * height;
 };
 
-// Słuchacze zdarzeń z flagą passive chroniącą płynność scrollowania
 document.addEventListener("mousemove", e => {
     updateMouseY(e.clientY);
 }, { passive: true });
@@ -76,12 +74,10 @@ for (let i = 0; i < totalLines; i++) {
     const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute("stroke", "url(#gold)");
     
-    // Optymalizacja: Zaokrąglenie wagi linii i przezroczystości na etapie generowania
     path.setAttribute("stroke-width", strokeWidth.toFixed(1));
     path.setAttribute("fill", "none");
     path.setAttribute("opacity", opacity.toFixed(2));
     
-    // Filtr rozmycia zostawiamy tylko dla desktopów - to on najbardziej "zabija" telefony
     if (!isMobile) {
         path.setAttribute("filter", "url(#softGlow)");
     }
@@ -151,4 +147,5 @@ function openLightbox(src) {
     img.src = src;
     lb.style.display = 'flex';
     document.body.style.overflow = 'hidden';
+
 }
