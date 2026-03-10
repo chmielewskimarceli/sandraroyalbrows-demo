@@ -45,36 +45,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const lines = [];
 
-    for (let i = 0; i < totalLines; i++) {
-        const y = rand(100, height - 100);
-        const amplitude1 = rand(40, 100);
-        const amplitude2 = rand(40, 100);
+    // --- Zmieniony fragment wewnątrz pętli for (generowanie linii) ---
 
-        const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
-        path.setAttribute("stroke", "url(#gold)");
-        path.setAttribute("stroke-width", rand(1.2, 2.6));
-        path.setAttribute("fill", "none");
-        path.setAttribute("opacity", rand(0.3, 0.7));
-        
-        if (!isMobile) {
-            path.setAttribute("filter", "url(#softGlow)");
-        }
-        
-        svg.appendChild(path);
+for (let i = 0; i < totalLines; i++) {
+    const y = rand(100, height - 100);
+    const amplitude1 = rand(40, 100);
+    const amplitude2 = rand(40, 100);
 
-        lines.push({
-            y,
-            cp1x: rand(width * 0.1, width * 0.45),
-            cp2x: rand(width * 0.55, width * 0.9),
-            baseAmplitude1: amplitude1,
-            baseAmplitude2: amplitude2,
-            cp1y: y - amplitude1,
-            cp2y: y + amplitude2,
-            direction: 1,
-            speed: rand(0.1, 0.3),
-            path
-        });
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("stroke", "url(#gold)");
+    path.setAttribute("stroke-width", rand(1.2, 2.6));
+    path.setAttribute("fill", "none");
+    path.setAttribute("opacity", rand(0.3, 0.7));
+    
+    if (!isMobile) {
+        path.setAttribute("filter", "url(#softGlow)");
     }
+    
+    svg.appendChild(path);
+
+    lines.push({
+        y,
+        cp1x: rand(width * 0.1, width * 0.45),
+        cp2x: rand(width * 0.55, width * 0.9),
+        baseAmplitude1: amplitude1,
+        baseAmplitude2: amplitude2,
+        cp1y: y - amplitude1,
+        cp2y: y + amplitude2,
+        direction: 1,
+        // ZMNIEJSZONA PRĘDKOŚĆ: z 0.1-0.3 na 0.03-0.08
+        speed: rand(0.03, 0.08), 
+        path
+    });
+}
 
     let lastTime = 0;
 
@@ -124,4 +127,5 @@ function openLightbox(src) {
     lb.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
+
 
