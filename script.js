@@ -82,17 +82,13 @@ for (let i = 0; i < totalLines; i++) {
     let lastTime = 0;
 
     function animate(currentTime) {
-        // Delta czasu pozwala zachować stałą prędkość niezależnie od odświeżania ekranu
         const deltaTime = (currentTime - lastTime) / 16; 
         lastTime = currentTime;
-
-        // Jeśli karta jest nieaktywna, deltaTime może być ogromny, co powoduje "skok". Limitujemy to.
         const step = deltaTime > 2 ? 1 : deltaTime;
 
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i];
             
-            // Logika ruchu identyczna z oryginałem, pomnożona o step dla płynności
             line.cp1y += line.direction * line.speed * step;
             line.cp2y -= line.direction * line.speed * step;
 
@@ -100,13 +96,15 @@ for (let i = 0; i < totalLines; i++) {
                 line.direction *= -1;
             }
 
+            // --- ZOPTYMALIZOWANA INTERAKCJA ---
             const dist = Math.abs(mouseY - line.y);
+            // Zmniejszamy siłę reakcji (0.01 zamiast 0.05) dla wolniejszego ruchu
             const influence = Math.max(0, 1 - dist / 200);
             
-            line.cp1y += (mouseY - line.cp1y) * 0.05 * influence * step;
-            line.cp2y += (mouseY - line.cp2y) * 0.05 * influence * step;
+            // Zmieniono mnożnik z 0.05 na 0.01, aby linie nie "skakały" do kursora
+            line.cp1y += (mouseY - line.cp1y) * 0.01 * influence * step;
+            line.cp2y += (mouseY - line.cp2y) * 0.01 * influence * step;
 
-            // Najszybszy sposób budowania atrybutu 'd' bez zaokrągleń toFixed
             line.path.setAttribute("d", 
                 "M0 " + line.y + 
                 "C" + line.cp1x + " " + line.cp1y + "," + 
@@ -127,6 +125,7 @@ function openLightbox(src) {
     lb.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
+
 
 
 
