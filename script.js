@@ -102,8 +102,8 @@ for (let i = 0; i < totalLines; i++) {
             const influence = Math.max(0, 1 - dist / 200);
             
             // Zmieniono mnożnik z 0.05 na 0.01, aby linie nie "skakały" do kursora
-            line.cp1y += (mouseY - line.cp1y) * 0.01 * influence * step;
-            line.cp2y += (mouseY - line.cp2y) * 0.01 * influence * step;
+            line.cp1y += (mouseY - line.cp1y) * 0.03 * influence * step;
+            line.cp2y += (mouseY - line.cp2y) * 0.05 * influence * step;
 
             line.path.setAttribute("d", 
                 "M0 " + line.y + 
@@ -125,6 +125,7 @@ function openLightbox(src) {
     lb.style.display = 'flex';
     document.body.style.overflow = 'hidden';
 }
+
 
 
 
