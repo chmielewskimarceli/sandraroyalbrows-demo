@@ -12,6 +12,21 @@
     <meta property="og:description" content="Sztuka pięknego spojrzenia w Gdańsku. Zapraszam na profesjonalną stylizację brwi.">
     <meta property="og:image" content="logo.webp">
     <meta property="og:type" content="website">
+    
+    <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link href="./tailwind-output.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -35,13 +50,6 @@
         "priceRange": "$$"
     }
     </script>
-    <link href="./tailwind-output.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
 </head>
 <body class="text-royal-dark antialiased overflow-x-hidden relative">
     <svg id="waves" class="fixed inset-0 -z-10 w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
@@ -62,7 +70,7 @@
             <div class="flex justify-between items-center h-full">
                 <div class="flex-shrink-0 flex items-center group">
                     <a href="#" class="flex items-center gap-3">
-                        <img src="logo.webp" alt="Royal Brows - Logo" class="h-10 w-auto md:h-12 transition-transform duration-300 group-hover:scale-110">
+                        <img src="logo.webp" alt="Royal Brows - Logo" width="160" height="48" class="h-10 w-auto md:h-12 transition-transform duration-300 group-hover:scale-110">
                         <span class="font-royal text-lg md:text-xl min-[1130px]:text-3xl font-bold tracking-wide gold-text-gradient">
                             Royal Brows
                         </span>
@@ -130,7 +138,7 @@
                         <span class="gold-text-gradient italic">Pięknego</span> Spojrzenia
                     </h1>
                     <p class="font-sans text-lg text-gray-500 font-light max-w-sm mx-auto md:mx-0 leading-relaxed">
-                        Specjalizuję się w <strong>makijażu permanentnym brwi</strong>, który podkreśla naturalność i wydobywa pewność siebie. Zapraszam do świata precyzji i elegancji w Gdańsku.
+                        &nbsp;&nbsp;Specjalizuję się w <strong>makijażu permanentnym brwi</strong>, który podkreśla naturalność i wydobywa pewność siebie. Zapraszam do świata precyzji i elegancji w Gdańsku.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-6 justify-center md:justify-start pt-6">
                         <a href="#oferta" class="gold-btn px-10 py-4 rounded-full text-white font-bold uppercase tracking-widest shadow-lg text-center">
@@ -142,7 +150,7 @@
                     </div>
                 </article>
                 <div class="hidden md:flex relative h-full items-end justify-end fade-in-right">
-                    <img src="hero.webp" alt="Sandra Kreft - ekspertka makijażu permanentnego brwi" class="z-10 block translate-y-[8%] pointer-events-none scale-[1.4]" loading="eager">
+                    <img src="hero.webp" alt="Sandra Kreft - ekspertka makijażu permanentnego brwi" width="800" height="1000" fetchpriority="high" class="z-10 block translate-y-[8%] pointer-events-none scale-[1.4]">
                 </div>
             </div>
         </div>
@@ -158,24 +166,26 @@
         </div>
         <div class="relative flex overflow-x-hidden py-4">
             <div class="animate-marquee">
-                <div class="portfolio-item" onclick="openLightbox('p1.webp')"><img src="p1.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p2.webp')"><img src="p2.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p3.webp')"><img src="p3.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p4.webp')"><img src="p4.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p5.webp')"><img src="p5.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p6.webp')"><img src="p6.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p1.webp')"><img src="p1.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p2.webp')"><img src="p2.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p3.webp')"><img src="p3.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p4.webp')"><img src="p4.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p5.webp')"><img src="p5.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p6.webp')"><img src="p6.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p1.webp')"><img src="p1.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p2.webp')"><img src="p2.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p3.webp')"><img src="p3.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p4.webp')"><img src="p4.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p5.webp')"><img src="p5.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
-                <div class="portfolio-item" onclick="openLightbox('p6.webp')"><img src="p6.webp"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p1.webp')"><img src="p1.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p2.webp')"><img src="p2.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p3.webp')"><img src="p3.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p4.webp')"><img src="p4.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p5.webp')"><img src="p5.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p6.webp')"><img src="p6.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                
+                <div class="portfolio-item" onclick="openLightbox('p1.webp')"><img src="p1.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p2.webp')"><img src="p2.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p3.webp')"><img src="p3.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p4.webp')"><img src="p4.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p5.webp')"><img src="p5.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p6.webp')"><img src="p6.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+
+                <div class="portfolio-item" onclick="openLightbox('p1.webp')"><img src="p1.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p2.webp')"><img src="p2.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p3.webp')"><img src="p3.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p4.webp')"><img src="p4.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p5.webp')"><img src="p5.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
+                <div class="portfolio-item" onclick="openLightbox('p6.webp')"><img src="p6.webp" alt="Praca portfolio" loading="lazy" width="300" height="400"><span class="absolute bottom-2 left-1/2 -translate-x-1/2 bg-gold-main/60 text-white text-[10px] px-2 py-1 rounded-full md:hidden whitespace-nowrap pointer-events-none">Dotknij, aby powiększyć</span><div class="portfolio-overlay"><i class="fas fa-search-plus"></i></div></div>
             </div>
         </div>
     </section>
@@ -183,7 +193,7 @@
         <button class="lightbox-close" aria-label="Zamknij">
             <i class="fas fa-times"></i>
         </button>
-        <img id="lightbox-img" src="" alt="Powiększenie">
+        <img id="lightbox-img" src="" alt="Powiększenie" loading="lazy">
     </div>
     <footer class="bg-white border-t border-yellow-100 py-6 relative z-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -200,6 +210,6 @@
             </div>
         </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
