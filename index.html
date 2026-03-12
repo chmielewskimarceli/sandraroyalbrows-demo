@@ -17,10 +17,24 @@
     
     <style>
         :root { --gold-main: #B38728; --gold-bright: #E5C376; }
-        /* Rezerwujemy miejsce na navbar, zanim załaduje się Tailwind */
-        #navbar { height: 5rem; background: rgba(255,255,255,0.8); position: fixed; width: 100%; top: 0; z-index: 50; border-bottom: 1px solid #B38728; }
-        /* Ważne dla animacji wejścia, by tekst nie mignął przed czasem */
-        .fade-in-up { opacity: 0; }
+    #navbar { height: 5rem; background: #fff; position: fixed; width: 100%; top: 0; z-index: 50; border-bottom: 1px solid #B38728; }
+    /* Stabilizacja CLS */
+    body { margin: 0; font-family: sans-serif; }
+    main { pt: 5rem; min-height: 80vh; }
+    /* LCP Fix: Pokaż nagłówek od razu bez czekania na animację */
+    .fade-in-up { opacity: 1 !important; transform: none !important; }
+
+        /* Rezerwacja miejsca dla kontenera Hero, by nie skakał */
+main { min-height: 100vh; display: flex; align-items: center; }
+.max-w-7xl { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
+@media (min-width: 640px) { .max-w-7xl { padding-left: 1.5rem; padding-right: 1.5rem; } }
+@media (min-width: 1024px) { .max-w-7xl { padding-left: 2rem; padding-right: 2rem; } }
+
+/* Zapobieganie przesunięciu przez obrazek Hero */
+.md\:flex { display: none; }
+@media (min-width: 768px) { .md\:flex { display: flex; } }
+
+article.fade-in-up { opacity: 1 !important; animation: none !important; }
     </style>
 
     <link rel="stylesheet" href="./tailwind-output.css" media="print" onload="this.media='all'">
@@ -220,6 +234,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
