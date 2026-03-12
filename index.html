@@ -8,24 +8,32 @@
     
     <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
     
-    <link rel="stylesheet" href="./tailwind-output.css">
-    <link rel="stylesheet" href="style.css">
-    
+    <link rel="canonical" href="https://twojadomena.pl/">
+    <link rel="icon" type="image/webp" href="logo.webp">
+    <link rel="apple-touch-icon" href="logo.webp">
+    <meta property="og:title" content="Royal Brows | Makijaż Permanentny Brwi Gdańsk">
+    <meta property="og:description" content="Sztuka pięknego spojrzenia w Gdańsku. Zapraszam na profesjonalną stylizację brwi.">
+    <meta property="og:image" content="logo.webp">
+    <meta property="og:type" content="website">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-
-    <link rel="canonical" href="https://twojadomena.pl/">
-    <link rel="icon" type="image/webp" href="logo.webp">
-    <link rel="apple-touch-icon" href="logo.webp">
-    
     <style>
-        :root { --gold-main: #B38728; --gold-bright: #E5C376; }
-        /* Rezerwujemy wysokość nawigacji, żeby uniknąć skoku przy ładowaniu */
-        #navbar { height: 5rem; background: #fff; }
-    </style>
+  /* To sprawi, że zanim wczytają się pliki, strona już ma szkielet */
+  :root { --gold-main: #B38728; --gold-bright: #E5C376; }
+  body { margin: 0; background: #fff; visibility: visible !important; }
+  #navbar { height: 5rem; background: #fff; border-bottom: 1px solid var(--gold-main); position: fixed; width: 100%; top: 0; z-index: 50; }
+  main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
+  .gold-text-gradient { color: #B38728; } /* Kolor zastępczy, zanim wejdzie gradient */
+</style>
+
+<link rel="stylesheet" href="./tailwind-output.css">
+<link rel="stylesheet" href="style.css">
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
     <script type="application/ld+json">
     {
@@ -40,7 +48,14 @@
             "postalCode": "80-001",
             "addressCountry": "PL"
         },
-        "url": "https://twojadomena.pl"
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 54.3475,
+            "longitude": 18.5912
+        },
+        "url": "https://twojadomena.pl",
+        "telephone": "+48000000000",
+        "priceRange": "$$"
     }
     </script>
 </head>
@@ -205,6 +220,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
