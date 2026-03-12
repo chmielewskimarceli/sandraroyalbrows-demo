@@ -8,26 +8,49 @@
     <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
 
     <style>
-        /* Ukrywamy body, dopóki CSS nie zostanie przetworzony przez przeglądarkę */
-        html { background: #fff; }
-        body { opacity: 0; transition: opacity 0.2s ease-in; }
+        /* CRITICAL CSS - SZTYWNY SZKIELET (0 CLS) */
+        :root { --gold-main: #B38728; --gold-bright: #E5C376; }
+        body { margin: 0; background: #fff; font-family: sans-serif; overflow-x: hidden; }
         
-        /* Zapewniamy, że waves nie zasłonią treści na start */
+        /* Navbar musi mieć sztywną wysokość od razu */
+        #navbar { 
+            position: fixed; top: 0; left: 0; right: 0; z-index: 50; 
+            height: 5rem; background: rgba(255, 255, 255, 0.8); 
+            border-bottom: 1px solid var(--gold-main); 
+        }
+
+        /* Hero Layout - Rezerwujemy miejsce, żeby nic nie skakało */
+        main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
+        .grid-placeholder { 
+            display: grid; width: 100%; grid-template-columns: 1fr; 
+        }
+        
+        @media (min-width: 768px) {
+            .grid-placeholder { grid-template-columns: 1fr 1fr; gap: 3rem; }
+            
+            /* KLUCZ: Obrazek w CSS krytycznym musi mieć te same wymiary i transformacje */
+            .hero-img-container {
+                display: flex !important; justify-content: flex-end; align-items: flex-end;
+                position: relative; overflow: visible;
+            }
+            .hero-img-container img {
+                width: 100%; height: auto; max-width: 800px;
+                transform: scale(1.4) translateY(8%) !important;
+                transform-origin: center bottom;
+                display: block;
+            }
+        }
+
+        /* Waves - pozycjonowanie fixed nie wpływa na CLS, ale musi być stabilne */
         #waves { position: fixed; inset: 0; z-index: -10; pointer-events: none; }
+
+        /* Blokujemy przeźroczystość z animacji JS na start */
+        .fade-in-up, .fade-in-right { opacity: 1 !important; transform: none !important; }
     </style>
 
     <link rel="stylesheet" href="./tailwind-output.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     
-    <script>
-        // Pokazuje stronę, gdy tylko DOM i style są gotowe
-        document.addEventListener("DOMContentLoaded", () => {
-            document.body.style.opacity = "1";
-        });
-        // Zabezpieczenie na wypadek błędu ładowania
-        window.onload = () => { document.body.style.opacity = "1"; };
-    </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
@@ -201,6 +224,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
