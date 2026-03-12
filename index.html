@@ -16,32 +16,26 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <style>
-        /* 1. Definicje zmiennych */
         :root { --gold-main: #B38728; --gold-bright: #E5C376; }
         
-        /* 2. UKRYWAMY BODY (żeby nie było widać gołego HTML) */
-        body { margin: 0; opacity: 0; background: #fff; font-family: sans-serif; transition: opacity 0.2s ease-in; }
+        /* Klucz do braku "głupiego" efektu: body jest ukryte, dopóki style nie wejdą */
+        body { opacity: 0; transition: opacity 0.2s ease-in; background: #fff; }
+        body.visible { opacity: 1; }
+
+        /* Rezerwujemy miejsce, żeby nic nie skakało (CLS Fix) */
+        #navbar { height: 5rem; position: fixed; width: 100%; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--gold-main); }
+        main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
         
-        /* 3. Rezerwujemy miejsce na kluczowe elementy (CLS Fix) */
-        #navbar { height: 5rem; position: fixed; width: 100%; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid #B38728; }
-        main { min-height: 100vh; display: flex; align-items: center; padding-top: 5rem; }
-        
-        /* 4. Gdy CSS się załaduje, pokazujemy body */
-        body.loaded { opacity: 1; }
-        
-        /* Fix dla LCP - żeby obrazek był widoczny od razu po pokazaniu body */
-        .fade-in-up { opacity: 1 !important; transform: none !important; animation: none !important; }
+        /* Wyłączamy animacje dla LCP, żeby zdjęcie "liczyło się" szybciej */
+        .fade-in-up, .fade-in-right { animation: none !important; opacity: 1 !important; transform: none !important; }
     </style>
 
     <script>
-        // Ten skrypt odpali się natychmiast po załadowaniu plików CSS
-        window.addEventListener('load', function() {
-            document.body.classList.add('loaded');
-        });
-        // Zabezpieczenie: jeśli 'load' trwa za długo, i tak pokaż stronę po 400ms
-        setTimeout(function() {
-            document.body.classList.add('loaded');
-        }, 400);
+        // Funkcja pokazująca stronę, gdy tylko CSS zostanie przetworzony
+        function showPage() { document.body.classList.add('visible'); }
+        window.addEventListener('DOMContentLoaded', showPage);
+        // Zapasowy bezpiecznik
+        setTimeout(showPage, 500);
     </script>
 
     <link rel="stylesheet" href="./tailwind-output.css" media="print" onload="this.media='all'">
@@ -241,6 +235,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
