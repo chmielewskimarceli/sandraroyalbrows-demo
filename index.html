@@ -4,44 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Brows Gdańsk | Microblading i Makijaż Permanentny</title>
-    <meta name="description" content="Profesjonalny microblading i makijaż permanentny w Gdańsku. Sandra Royal Brows – wydobądź naturalne piękno swoich brwi. Zarezerwuj wizytę online!">
     
     <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
 
     <style>
-        /* Ukrywamy body tylko do momentu załadowania CSS, by uniknąć mrugnięcia gołym HTML */
+        /* Ukrywamy body, dopóki CSS nie zostanie przetworzony przez przeglądarkę */
         html { background: #fff; }
-        body { opacity: 0; }
+        body { opacity: 0; transition: opacity 0.2s ease-in; }
         
-        /* Absolutne podstawy, by strona nie była "rozwalona" przed pokazaniem */
-        #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: rgba(255,255,255,0.8); }
-        main { padding-top: 5rem; display: flex; min-height: 100vh; }
-        #waves { position: fixed; inset: 0; z-index: -10; width: 100%; height: 100%; }
-        
-        /* Blokada animacji startowych - żeby tekst nie był przeźroczysty na wejściu */
-        .fade-in-up, .fade-in-right { opacity: 1 !important; transform: none !important; }
+        /* Zapewniamy, że waves nie zasłonią treści na start */
+        #waves { position: fixed; inset: 0; z-index: -10; pointer-events: none; }
     </style>
 
-    <link rel="preload" href="./tailwind-output.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="stylesheet" href="./tailwind-output.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
     
-    <noscript>
-        <link rel="stylesheet" href="./tailwind-output.css">
-        <link rel="stylesheet" href="style.css">
-    </noscript>
-
     <script>
-        // Pokazujemy body w momencie, gdy CSS zostanie przetworzony
-        const showBody = () => { document.body.style.opacity = "1"; };
-        document.addEventListener("DOMContentLoaded", showBody);
-        // Jeśli DOMContentLoaded by się spóźnił, window.onload to "bezpiecznik"
-        window.onload = showBody;
+        // Pokazuje stronę, gdy tylko DOM i style są gotowe
+        document.addEventListener("DOMContentLoaded", () => {
+            document.body.style.opacity = "1";
+        });
+        // Zabezpieczenie na wypadek błędu ładowania
+        window.onload = () => { document.body.style.opacity = "1"; };
     </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+
+    <noscript>
+        <link rel="stylesheet" href="./tailwind-output.css">
+        <link rel="stylesheet" href="style.css">
+    </noscript>
 
     <link rel="icon" type="image/webp" href="logo.webp">
 </head>
@@ -206,6 +201,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
