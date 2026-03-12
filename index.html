@@ -4,68 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Brows Gdańsk | Microblading i Makijaż Permanentny</title>
-    <meta name="description" content="Profesjonalny microblading i makijaż permanentny w Gdańsku. Sandra Royal Brows – wydobądź naturalne piękno swoich brwi. Zarezerwuj wizytę online!">
     
     <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
-    <link rel="preload" href="./tailwind-output.css" as="style">
-    <link rel="preload" href="style.css" as="style">
 
     <style>
-        /* CRITICAL CSS: To co musi być natychmiast, żeby nie było skoku (Shiftu) */
-        :root { --gold-main: #B38728; --gold-bright: #E5C376; }
-        body { margin: 0; background: #fff; font-family: sans-serif; overflow-x: hidden; }
+        :root { --gold-main: #B38728; }
+        body { margin: 0; background: #fff; font-family: sans-serif; }
         
-        /* Navbar rezerwuje 80px - koniec z podskakiwaniem tekstu */
-        #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: #fff; border-bottom: 1px solid var(--gold-main); }
-        
-        /* Layout Hero - Grid i obrazek */
+        /* SZTYWNY SZKIELET DLA CLS 0.0 */
+        #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: #fff; }
         main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
         
-        /* Ukrywamy resztę sekcji póki CSS nie wejdzie, ale Hero zostaje widoczne */
-        .grid { display: grid; grid-template-columns: 1fr; width: 100%; }
-        
+        /* To rezerwuje miejsce na Twój grid, żeby tekst nie był na środku przed załadowaniem CSS */
+        .grid { display: grid; width: 100%; grid-template-columns: 1fr; }
+
         @media (min-width: 768px) {
             .grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-            /* To rezerwuje miejsce na obrazek w skali 1.4 - KLUCZ DO BRAKU SHIFTU */
+            
+            /* KLUCZ: Rezerwujemy miejsce na obrazek z uwzględnieniem Twojego scale-[1.4] */
+            .md\:flex { display: flex !important; align-items: flex-end; justify-content: flex-end; }
             .md\:flex img { 
+                width: 100%; 
+                max-width: 800px; 
+                height: auto;
+                aspect-ratio: 4 / 5; /* Rezerwuje proporcje obrazka przed wczytaniem */
                 transform: scale(1.4) translateY(8%); 
                 transform-origin: center bottom;
-                display: block;
-                max-width: 100%;
-                height: auto;
             }
         }
 
-        /* Zapobiegamy mruganiu animacji startowych (stan końcowy na start) */
+        /* Blokada mrugania animacji - wymuszamy widoczność */
         .fade-in-up, .fade-in-right { opacity: 1 !important; transform: none !important; animation: none !important; }
     </style>
 
-    <link rel="stylesheet" href="./tailwind-output.css" media="all">
-    <link rel="stylesheet" href="style.css" media="all">
+    <link rel="stylesheet" href="./tailwind-output.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="./tailwind-output.css">
+        <link rel="stylesheet" href="style.css">
+    </noscript>
 
-    <link rel="canonical" href="https://twojadomena.pl/">
     <link rel="icon" type="image/webp" href="logo.webp">
-    
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BeautySalon",
-        "name": "Royal Brows",
-        "image": "logo.webp",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "ul. Myśliwska 44",
-            "addressLocality": "Gdańsk"
-        },
-        "url": "https://twojadomena.pl"
-    }
-    </script>
 </head>
 <body class="text-royal-dark antialiased overflow-x-hidden relative">
     <svg id="waves" class="fixed inset-0 -z-10 w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
@@ -228,6 +212,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
