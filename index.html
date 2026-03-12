@@ -8,29 +8,36 @@
     <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
 
     <style>
-        :root { --gold-main: #B38728; }
+        /* 2. CRITICAL CSS - IDENTYCZNY WYGLĄD 1:1 */
+        :root { --gold-main: #B38728; --gold-bright: #E5C376; }
         body { margin: 0; background: #fff; font-family: sans-serif; overflow-x: hidden; }
         
-        /* Sztywny wymiar dla Navbaru - zapobiega skakaniu treści (CLS) */
+        /* Navbar - rezerwacja miejsca (0 CLS) */
         #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: #fff; border-bottom: 1px solid rgba(179,135,40,0.2); }
         main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
 
-        /* Stabilizacja Gridu i Obrazka Hero */
-        .grid { display: grid; grid-template-columns: 1fr; width: 100%; }
+        /* Grid i Obrazek - precyzyjne wartości z Twojego "zajebistego" kodu */
+        .grid { display: grid; width: 100%; grid-template-columns: 1fr; }
         @media (min-width: 768px) {
             .grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-            .hero-img-side { display: flex !important; justify-content: flex-end; align-items: flex-end; }
+            .md\:flex { display: flex !important; }
+            .hero-img-side { display: flex; justify-content: flex-end; align-items: flex-end; }
             .hero-img-side img { 
-                height: 1000px !important; /* Twoja oryginalna wysokość */
+                height: 1000px !important; 
                 width: auto !important;
                 max-width: none !important;
                 transform: scale(1.4) translateY(8%) !important;
                 transform-origin: center bottom;
+                display: block;
             }
         }
-        
-        /* Ukrywamy menu mobilne na start, żeby nie mrugnęło otwarte */
-        #mobile-menu.hidden { display: none; }
+
+        /* Naprawa Navbara Mobile - klasy Tailwinda w wersji krytycznej */
+        .hidden { display: none; }
+        #mobile-menu { position: fixed; inset: 0; z-index: 40; background: #fff; }
+
+        /* Stabilizacja animacji - tekst ma być widoczny NATYCHMIAST (FCP FIX) */
+        .fade-in-up, .fade-in-right { opacity: 1 !important; transform: none !important; animation: none !important; }
     </style>
 
     <link rel="stylesheet" href="./tailwind-output.css">
@@ -204,6 +211,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
