@@ -16,26 +16,33 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <style>
+        /* 1. Definicje zmiennych */
         :root { --gold-main: #B38728; --gold-bright: #E5C376; }
-    #navbar { height: 5rem; background: #fff; position: fixed; width: 100%; top: 0; z-index: 50; border-bottom: 1px solid #B38728; }
-    /* Stabilizacja CLS */
-    body { margin: 0; font-family: sans-serif; }
-    main { pt: 5rem; min-height: 80vh; }
-    /* LCP Fix: Pokaż nagłówek od razu bez czekania na animację */
-    .fade-in-up { opacity: 1 !important; transform: none !important; }
-
-        /* Rezerwacja miejsca dla kontenera Hero, by nie skakał */
-main { min-height: 100vh; display: flex; align-items: center; }
-.max-w-7xl { width: 100%; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem; }
-@media (min-width: 640px) { .max-w-7xl { padding-left: 1.5rem; padding-right: 1.5rem; } }
-@media (min-width: 1024px) { .max-w-7xl { padding-left: 2rem; padding-right: 2rem; } }
-
-/* Zapobieganie przesunięciu przez obrazek Hero */
-.md\:flex { display: none; }
-@media (min-width: 768px) { .md\:flex { display: flex; } }
-
-article.fade-in-up { opacity: 1 !important; animation: none !important; }
+        
+        /* 2. UKRYWAMY BODY (żeby nie było widać gołego HTML) */
+        body { margin: 0; opacity: 0; background: #fff; font-family: sans-serif; transition: opacity 0.2s ease-in; }
+        
+        /* 3. Rezerwujemy miejsce na kluczowe elementy (CLS Fix) */
+        #navbar { height: 5rem; position: fixed; width: 100%; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid #B38728; }
+        main { min-height: 100vh; display: flex; align-items: center; padding-top: 5rem; }
+        
+        /* 4. Gdy CSS się załaduje, pokazujemy body */
+        body.loaded { opacity: 1; }
+        
+        /* Fix dla LCP - żeby obrazek był widoczny od razu po pokazaniu body */
+        .fade-in-up { opacity: 1 !important; transform: none !important; animation: none !important; }
     </style>
+
+    <script>
+        // Ten skrypt odpali się natychmiast po załadowaniu plików CSS
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+        // Zabezpieczenie: jeśli 'load' trwa za długo, i tak pokaż stronę po 400ms
+        setTimeout(function() {
+            document.body.classList.add('loaded');
+        }, 400);
+    </script>
 
     <link rel="stylesheet" href="./tailwind-output.css" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
@@ -234,6 +241,7 @@ article.fade-in-up { opacity: 1 !important; animation: none !important; }
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
