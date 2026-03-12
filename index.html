@@ -8,44 +8,41 @@
     <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
 
     <style>
-        /* CRITICAL CSS - SZTYWNY SZKIELET (0 CLS) */
+        /* CRITICAL CSS - IDENTYCZNY Z TWOIM HTML */
         :root { --gold-main: #B38728; --gold-bright: #E5C376; }
-        body { margin: 0; background: #fff; font-family: sans-serif; overflow-x: hidden; }
-        
-        /* Navbar musi mieć sztywną wysokość od razu */
+        body { margin: 0; background: #fff; font-family: sans-serif; }
+
+        /* Navbar - sztywna wysokość 80px (h-20) zapobiega skokom */
         #navbar { 
             position: fixed; top: 0; left: 0; right: 0; z-index: 50; 
             height: 5rem; background: rgba(255, 255, 255, 0.8); 
-            border-bottom: 1px solid var(--gold-main); 
+            display: flex; align-items: center; border-bottom: 1px solid rgba(179,135,40,0.2);
         }
 
-        /* Hero Layout - Rezerwujemy miejsce, żeby nic nie skakało */
-        main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
-        .grid-placeholder { 
-            display: grid; width: 100%; grid-template-columns: 1fr; 
-        }
+        /* Układ Hero - Grid musi być zdefiniowany tutaj */
+        main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; position: relative; }
+        .grid { display: grid; width: 100%; }
         
         @media (min-width: 768px) {
-            .grid-placeholder { grid-template-columns: 1fr 1fr; gap: 3rem; }
+            .md\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+            .md\:text-left { text-align: left; }
+            .md\:flex { display: flex !important; }
             
-            /* KLUCZ: Obrazek w CSS krytycznym musi mieć te same wymiary i transformacje */
-            .hero-img-container {
-                display: flex !important; justify-content: flex-end; align-items: flex-end;
-                position: relative; overflow: visible;
-            }
-            .hero-img-container img {
+            /* Obrazek - precyzyjne scale i translate z Twojego HTML */
+            .hero-img-side { display: flex; justify-content: flex-end; align-items: flex-end; position: relative; }
+            .hero-img-side img {
                 width: 100%; height: auto; max-width: 800px;
                 transform: scale(1.4) translateY(8%) !important;
                 transform-origin: center bottom;
-                display: block;
+                z-index: 10;
             }
         }
 
-        /* Waves - pozycjonowanie fixed nie wpływa na CLS, ale musi być stabilne */
-        #waves { position: fixed; inset: 0; z-index: -10; pointer-events: none; }
-
-        /* Blokujemy przeźroczystość z animacji JS na start */
+        /* Blokada mrugania animacji AOS/Custom */
         .fade-in-up, .fade-in-right { opacity: 1 !important; transform: none !important; }
+        
+        /* Waves */
+        #waves { position: fixed; inset: 0; z-index: -10; pointer-events: none; }
     </style>
 
     <link rel="stylesheet" href="./tailwind-output.css" media="print" onload="this.media='all'">
@@ -56,12 +53,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
-    <noscript>
-        <link rel="stylesheet" href="./tailwind-output.css">
-        <link rel="stylesheet" href="style.css">
-    </noscript>
-
-    <link rel="icon" type="image/webp" href="logo.webp">
+    <noscript><link rel="stylesheet" href="./tailwind-output.css"><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body class="text-royal-dark antialiased overflow-x-hidden relative">
     <svg id="waves" class="fixed inset-0 -z-10 w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
@@ -224,6 +216,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
