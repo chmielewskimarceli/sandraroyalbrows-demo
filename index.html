@@ -6,37 +6,31 @@
     <title>Royal Brows Gdańsk | Microblading i Makijaż Permanentny</title>
     
     <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
-    <link rel="preload" href="./tailwind-output.css" as="style">
-    <link rel="preload" href="style.css" as="style">
 
     <style>
         :root { --gold-main: #B38728; }
         body { margin: 0; background: #fff; font-family: sans-serif; overflow-x: hidden; }
         
-        /* Navbar musi mieć wysokość, żeby treść pod nim nie skakała (CLS) */
-        #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: #fff; }
+        /* Sztywny wymiar dla Navbaru - zapobiega skakaniu treści (CLS) */
+        #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: #fff; border-bottom: 1px solid rgba(179,135,40,0.2); }
         main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
 
-        /* Struktura Hero - zapobiega wyświetlaniu obrazka pod tekstem na starcie */
-        .grid { display: grid; width: 100%; grid-template-columns: 1fr; }
+        /* Stabilizacja Gridu i Obrazka Hero */
+        .grid { display: grid; grid-template-columns: 1fr; width: 100%; }
         @media (min-width: 768px) {
             .grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-            .md\:flex { display: flex !important; }
-            /* Kluczowe: zachowanie proporcji i Twojej skali 1.4 bez ucinania */
+            .hero-img-side { display: flex !important; justify-content: flex-end; align-items: flex-end; }
             .hero-img-side img { 
-                max-width: none !important; 
+                height: 1000px !important; /* Twoja oryginalna wysokość */
                 width: auto !important;
-                height: 1000px; /* Twoja oryginalna wysokość z HTML */
+                max-width: none !important;
                 transform: scale(1.4) translateY(8%) !important;
                 transform-origin: center bottom;
             }
         }
-
-        /* Menu mobilne musi być ukryte na starcie, żeby JS mógł je pokazać */
-        #mobile-menu.hidden { display: none; }
         
-        /* Blokada mrugania animacji */
-        .fade-in-up, .fade-in-right { opacity: 1 !important; transform: none !important; }
+        /* Ukrywamy menu mobilne na start, żeby nie mrugnęło otwarte */
+        #mobile-menu.hidden { display: none; }
     </style>
 
     <link rel="stylesheet" href="./tailwind-output.css">
@@ -210,6 +204,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
