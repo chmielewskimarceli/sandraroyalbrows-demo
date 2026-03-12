@@ -12,30 +12,34 @@
         :root { --gold-main: #B38728; --gold-bright: #E5C376; }
         body { margin: 0; background: #fff; font-family: sans-serif; }
         
-        /* Navbar musi mieć wysokość, żeby JS (h-20/h-16) go nie zgubił */
-        #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: #fff; display: flex; align-items: center; border-bottom: 1px solid rgba(179,135,40,0.1); }
+        /* Navbar musi mieć wysokość 80px (h-20), żeby JS go nie zgubił */
+        #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: #fff; display: flex; align-items: center; }
         main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
 
-        /* HERO - Sztywny szkielet (Zero Shiftu i idealny wygląd) */
+        /* Stabilizacja Gridu i Hero - Kopiujemy wymiary z Twojego kodu */
         .grid { display: grid; width: 100%; grid-template-columns: 1fr; }
         @media (min-width: 768px) {
             .grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-            .md\:flex { display: flex !important; }
             .hero-img-side { display: flex !important; justify-content: flex-end; align-items: flex-end; }
+            /* Klucz do Twojego idealnego wyglądu obrazka */
             .hero-img-side img { 
-                height: 1000px !important; width: auto !important; max-width: none !important;
-                transform: scale(1.4) translateY(8%) !important; transform-origin: center bottom;
+                height: 1000px !important; 
+                width: auto !important;
+                max-width: none !important;
+                transform: scale(1.4) translateY(8%) !important;
+                transform-origin: center bottom;
                 display: block !important;
             }
         }
 
-        /* FIX DLA NAWIGACJI - Klasy muszą być tu przed CSSem zewnętrznym */
+        /* Fix dla nawigacji - te klasy muszą być tu od startu dla script.js */
         .hidden { display: none !important; }
-        #mobile-menu { position: fixed; inset: 0; z-index: 100; background: #fff; }
         
-        /* FIX DLA FCP/LCP - Zabijamy animacje dla robota Google */
+        /* Fix dla FCP/LCP - sprawiamy, że tekst jest widoczny natychmiast dla Google */
         .fade-in-up, .fade-in-right, [data-aos] { 
-            opacity: 1 !important; transform: none !important; visibility: visible !important; 
+            opacity: 1 !important; 
+            transform: none !important; 
+            visibility: visible !important;
         }
     </style>
 
@@ -50,8 +54,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
     <link rel="icon" type="image/webp" href="logo.webp">
-    
-    </head>
+</head>
 <body class="text-royal-dark antialiased overflow-x-hidden relative">
     <svg id="waves" class="fixed inset-0 -z-10 w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
         <defs>
@@ -213,6 +216,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
