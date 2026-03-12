@@ -8,20 +8,18 @@
     <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
 
     <style>
-        /* 2. CRITICAL CSS - IDENTYCZNY WYGLĄD 1:1 */
-        :root { --gold-main: #B38728; --gold-bright: #E5C376; }
+        :root { --gold-main: #B38728; }
         body { margin: 0; background: #fff; font-family: sans-serif; overflow-x: hidden; }
         
-        /* Navbar - rezerwacja miejsca (0 CLS) */
-        #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: #fff; border-bottom: 1px solid rgba(179,135,40,0.2); }
+        /* Navbar musi być widoczny i mieć wysokość od 0ms */
+        #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: #fff; border-bottom: 1px solid rgba(179,135,40,0.1); display: flex; align-items: center; }
         main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
 
-        /* Grid i Obrazek - precyzyjne wartości z Twojego "zajebistego" kodu */
+        /* GWARANCJA IDENTYCZNEGO WYGLĄDU HERO (0 SHIFTU) */
         .grid { display: grid; width: 100%; grid-template-columns: 1fr; }
         @media (min-width: 768px) {
             .grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-            .md\:flex { display: flex !important; }
-            .hero-img-side { display: flex; justify-content: flex-end; align-items: flex-end; }
+            .hero-img-side { display: flex !important; justify-content: flex-end; align-items: flex-end; }
             .hero-img-side img { 
                 height: 1000px !important; 
                 width: auto !important;
@@ -32,12 +30,16 @@
             }
         }
 
-        /* Naprawa Navbara Mobile - klasy Tailwinda w wersji krytycznej */
-        .hidden { display: none; }
-        #mobile-menu { position: fixed; inset: 0; z-index: 40; background: #fff; }
+        /* NAPRAWA FCP/LCP: Wymuszamy widoczność treści, by Google nie czekał na animacje */
+        .fade-in-up, .fade-in-right, [data-aos] { 
+            opacity: 1 !important; 
+            transform: none !important; 
+            visibility: visible !important;
+        }
 
-        /* Stabilizacja animacji - tekst ma być widoczny NATYCHMIAST (FCP FIX) */
-        .fade-in-up, .fade-in-right { opacity: 1 !important; transform: none !important; animation: none !important; }
+        /* Menu mobilne - stan początkowy (ukryte) */
+        .hidden { display: none !important; }
+        #mobile-menu:not(.hidden) { display: block !important; }
     </style>
 
     <link rel="stylesheet" href="./tailwind-output.css">
@@ -211,6 +213,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
