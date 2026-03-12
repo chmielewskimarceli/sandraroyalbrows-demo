@@ -7,58 +7,49 @@
     <meta name="description" content="Profesjonalny microblading i makijaż permanentny w Gdańsku. Sandra Royal Brows – wydobądź naturalne piękno swoich brwi. Zarezerwuj wizytę online!">
     
     <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
+    <link rel="preload" href="./tailwind-output.css" as="style">
+    <link rel="preload" href="style.css" as="style">
     
-    <style>
-        /* 1. BLOKADA SHIFTU I CZYSTEGO HTML */
-        :root { --gold-main: #B38728; --gold-bright: #E5C376; }
-        body { margin: 0; background: #fff; visibility: visible !important; font-family: sans-serif; }
-        
-        /* Navbar musi mieć sztywne 80px (h-20), żeby treść nie podskoczyła */
-        #navbar { height: 5rem; position: fixed; top: 0; width: 100%; z-index: 50; background: #fff; border-bottom: 1px solid var(--gold-main); }
-        
-        /* Main i Grid - rezerwacja miejsca pod Twój konkretny układ */
-        main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
-        .grid { display: grid; width: 100%; grid-template-columns: 1fr; }
-
-        @media (min-width: 768px) {
-            .grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-            
-            /* KLUCZ: Obrazek musi mieć te same parametry co w Twoim HTML, 
-               żeby po wczytaniu Tailwinda nie zmienił rozmiaru ani pozycji */
-            .hero-img-side { display: flex !important; justify-content: flex-end; align-items: flex-end; }
-            .hero-img-side img { 
-                display: block !important;
-                height: 1000px !important; /* Twoja wysokość z HTML */
-                width: auto !important;
-                max-width: none !important;
-                transform: scale(1.4) translateY(8%) !important;
-                transform-origin: center bottom;
-            }
-        }
-
-        /* Widoczność tekstu od razu - zabija problem z LCP i niewidocznym tekstem */
-        .fade-in-up, .fade-in-right, [data-aos] { 
-            opacity: 1 !important; transform: none !important; transition: none !important; 
-        }
-
-        /* Fix dla nawigacji - klasa musi być w head, żeby script.js jej nie szukał w próżni */
-        .hidden { display: none !important; }
-    </style>
-
-    <link rel="preload" href="./tailwind-output.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    
-    <noscript>
-        <link rel="stylesheet" href="./tailwind-output.css">
-        <link rel="stylesheet" href="style.css">
-    </noscript>
+    <link rel="canonical" href="https://twojadomena.pl/">
+    <link rel="icon" type="image/webp" href="logo.webp">
+    <link rel="apple-touch-icon" href="logo.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    
-    <link rel="icon" type="image/webp" href="logo.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        /* Twoje style krytyczne - zostawiamy 1:1, by nic nie drgnęło */
+        :root { --gold-main: #B38728; --gold-bright: #E5C376; }
+        body { margin: 0; background: #fff; visibility: visible !important; }
+        #navbar { height: 5rem; background: #fff; border-bottom: 1px solid var(--gold-main); position: fixed; width: 100%; top: 0; z-index: 50; }
+        main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
+        .gold-text-gradient { color: #B38728; }
+        
+        /* FIX DLA LCP: Tekst musi być widoczny od razu, by Google nie czekał na koniec animacji */
+        .fade-in-up, .fade-in-right, [data-aos] { opacity: 1 !important; transform: none !important; }
+    </style>
+
+    <link rel="stylesheet" href="./tailwind-output.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BeautySalon",
+        "name": "Royal Brows",
+        "image": "logo.webp",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ul. Myśliwska 44",
+            "addressLocality": "Gdańsk"
+        },
+        "url": "https://twojadomena.pl"
+    }
+    </script>
 </head>
 <body class="text-royal-dark antialiased overflow-x-hidden relative">
     <svg id="waves" class="fixed inset-0 -z-10 w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
@@ -221,6 +212,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
