@@ -17,69 +17,28 @@
     <meta property="og:type" content="website">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
-    <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" 
+      rel="stylesheet" 
+      media="print" 
+      onload="this.media='all'">
 
-<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+      media="print" 
+      onload="this.media='all'">
+
 <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </noscript>
+
     <style>
 /* =========================================
    1. TAILWIND OUTPUT 1:1
    ========================================= */
 /*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */
-
-/* Dodajemy font-display: swap bezpośrednio do definicji (jeśli masz pliki lokalnie) */
-/* Jeśli zostajesz przy Google Fonts, upewnij się, że w index.html link ma &display=swap */
-
-@font-face {
-  font-family: 'Cinzel';
-  font-display: swap;
-  src: local('Cinzel');
-}
-@font-face {
-  font-family: 'Playfair Display';
-  font-display: swap;
-  src: local('Playfair Display');
-}
-@font-face {
-  font-family: 'Lato';
-  font-display: swap;
-  src: local('Lato');
-}
-
-@font-face {
-    font-family: 'Font Awesome 6 Free';
-    font-display: swap;
-    src: local('Font Awesome 6 Free');
-}
-@font-face {
-    font-family: 'Font Awesome 6 Brands';
-    font-display: swap;
-    src: local('Font Awesome 6 Brands');
-}
-
-/* Przykładowa korekta dla Playfair Display */
-@font-face {
-  font-family: "Playfair Fallback";
-  src: local("Times New Roman");
-  ascent-override: 95%;
-  descent-override: 25%;
-  line-gap-override: 0%;
-  size-adjust: 105%; /* Dostosuj ten % tak, aby tekst systemowy był tej samej szerokości */
-}
-
-/* W Tailwindzie/CSS używaj tego jako fallback */
-.font-serif {
-  font-family: "Playfair Display", "Playfair Fallback", serif;
-}
-        
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -470,9 +429,6 @@ body { margin: 0; padding: 0; }
 @media (max-width: 768px) { .lightbox-close { top: 10px; right: 10px; font-size: 2rem; } }
     </style>
 
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -499,8 +455,6 @@ body { margin: 0; padding: 0; }
 
     <link rel="stylesheet" href="tailwind-output.css" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
-
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap" media="print" onload="this.media='all'">
     
 </head>
 <body class="text-royal-dark antialiased overflow-x-hidden relative">
@@ -664,6 +618,7 @@ body { margin: 0; padding: 0; }
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
