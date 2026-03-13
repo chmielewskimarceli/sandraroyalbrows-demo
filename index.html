@@ -27,6 +27,26 @@
    1. TAILWIND OUTPUT 1:1
    ========================================= */
 /*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */
+
+/* Dodajemy font-display: swap bezpośrednio do definicji (jeśli masz pliki lokalnie) */
+/* Jeśli zostajesz przy Google Fonts, upewnij się, że w index.html link ma &display=swap */
+
+@font-face {
+  font-family: 'Cinzel';
+  font-display: swap;
+  src: local('Cinzel');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
+  src: local('Playfair Display');
+}
+@font-face {
+  font-family: 'Lato';
+  font-display: swap;
+  src: local('Lato');
+}
+        
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -605,6 +625,7 @@ body { margin: 0; padding: 0; }
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
