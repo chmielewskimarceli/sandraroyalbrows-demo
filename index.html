@@ -4,28 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Brows Gdańsk | Microblading i Makijaż Permanentny</title>
-    <meta name="description" content="Profesjonalny microblading i makijaż permanentny w Gdańsku. Sandra Royal Brows – wydobądź naturalne piękno swoich brwi. Zarezerwuj wizytę online!">
     
     <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
     <link rel="preload" href="./tailwind-output.css" as="style">
     <link rel="preload" href="style.css" as="style">
     
-    <link rel="canonical" href="https://twojadomena.pl/">
-    <link rel="icon" type="image/webp" href="logo.webp">
-    <link rel="apple-touch-icon" href="logo.webp">
-
     <style>
         :root { --gold-main: #B38728; --gold-bright: #E5C376; }
-        body { margin: 0; background: #fff; visibility: visible !important; }
+        body { margin: 0; background: #fff; display: block !important; }
         #navbar { height: 5rem; background: #fff; border-bottom: 1px solid var(--gold-main); position: fixed; width: 100%; top: 0; z-index: 50; }
-        main { padding-top: 5rem; min-height: 100vh; display: flex; align-items: center; }
-
-        /* KLUCZ: Google mierzy LCP dopiero jak tekst jest widoczny. 
-           Zdejmujemy opacity:0 z animacji na samym starcie. */
+        main { padding-top: 5rem; min-height: 100vh; }
+        
+        /* FIX DLA LCP: Usuwamy animacje wejścia dla tekstu w Hero, żeby Google zmierzył go natychmiast */
         .fade-in-up, .fade-in-right, [data-aos] { 
             opacity: 1 !important; 
             transform: none !important; 
-            visibility: visible !important; 
+            transition: none !important; 
         }
     </style>
 
@@ -35,22 +29,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BeautySalon",
-        "name": "Royal Brows",
-        "image": "logo.webp",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "ul. Myśliwska 44",
-            "addressLocality": "Gdańsk"
-        },
-        "url": "https://twojadomena.pl"
-    }
-    </script>
+    <link rel="icon" type="image/webp" href="logo.webp">
 </head>
 <body class="text-royal-dark antialiased overflow-x-hidden relative">
     <svg id="waves" class="fixed inset-0 -z-10 w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
@@ -213,6 +194,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
