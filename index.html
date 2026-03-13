@@ -53,6 +53,32 @@
   font-display: swap;
   src: local('Lato');
 }
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-display: swap;
+    src: local('Font Awesome 6 Free');
+}
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-display: swap;
+    src: local('Font Awesome 6 Brands');
+}
+
+/* Przykładowa korekta dla Playfair Display */
+@font-face {
+  font-family: "Playfair Fallback";
+  src: local("Times New Roman");
+  ascent-override: 95%;
+  descent-override: 25%;
+  line-gap-override: 0%;
+  size-adjust: 105%; /* Dostosuj ten % tak, aby tekst systemowy był tej samej szerokości */
+}
+
+/* W Tailwindzie/CSS używaj tego jako fallback */
+.font-serif {
+  font-family: "Playfair Display", "Playfair Fallback", serif;
+}
         
 @layer properties;
 @layer theme, base, components, utilities;
@@ -638,6 +664,7 @@ body { margin: 0; padding: 0; }
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
