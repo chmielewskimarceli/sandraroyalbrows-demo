@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Brows Gdańsk | Microblading i Makijaż Permanentny</title>
-    <meta name="description" content="Profesjonalny microblading i makijaż permanentny w Gdańsku. Sandra Royal Brows – wydobądź naturalne piękno swoich brwi. Zarezerwuj wizytę online!">
     
-    <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
-    
-    <link rel="canonical" href="https://twojadomena.pl/">
-    <link rel="icon" type="image/webp" href="logo.webp">
-    <link rel="apple-touch-icon" href="logo.webp">
-    
-    <meta property="og:title" content="Royal Brows | Makijaż Permanentny Brwi Gdańsk">
-    <meta property="og:description" content="Sztuka pięknego spojrzenia w Gdańsku. Zapraszam na profesjonalną stylizację brwi.">
-    <meta property="og:image" content="logo.webp">
-    <meta property="og:type" content="website">
+    <style>
+        body { visibility: hidden; } /* Zapobiega skokowi treści, dopóki CSS nie wejdzie */
+    </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+
+    <link rel="stylesheet" href="tailwind-output.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
 
     <style>
 /* =========================================
    1. TAILWIND & CUSTOM STYLES
    ========================================= */
 @layer theme {
-  :root, :host {
-    /* Wymuszamy widoczność tekstu podczas ładowania */
-    font-display: swap; 
+            :root {
+                font-display: swap; /* To usuwa błąd "Wyświetlanie czcionki" */
+                --font-sans: "Lato", sans-serif;
+                --font-serif: "Playfair Display", serif;
+                --font-royal: "Cinzel", serif; 
     
     --font-sans: "Lato", sans-serif;
     --font-serif: "Playfair Display", serif;
@@ -250,6 +250,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
