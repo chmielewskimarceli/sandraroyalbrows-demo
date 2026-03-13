@@ -4,10 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Royal Brows Gdańsk | Microblading i Makijaż Permanentny</title>
-    
-    <style>
-        body { visibility: hidden; } /* Zapobiega skokowi treści, dopóki CSS nie wejdzie */
-    </style>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,14 +20,13 @@
     <link rel="preload" href="fonts/cinzel-v19-latin-700.woff2" as="font" type="font/woff2" crossorigin>
 
     <style>
-
-        body { visibility: visible !important; }
+        
   /* 3. Definiujemy czcionki lokalnie z font-display: swap */
   @font-face {
     font-family: 'Cinzel';
     font-style: normal;
     font-weight: 400;
-    font-display: swap; /* To usuwa Twój komunikat z Lighthouse */
+    font-display: swap;
     src: url(https://fonts.gstatic.com/s/cinzel/v19/8vL67w9cm_7_Nn8q9vO7.woff2) format('woff2');
   }
   @font-face {
@@ -41,12 +36,16 @@
     font-display: swap;
     src: url(https://fonts.gstatic.com/s/lato/v24/S6uyw4BMUTPHvxk6XweuBcY.woff2) format('woff2');
   }
-  
-  /* Przypisanie czcionek do zmiennych, które już masz w kodzie */
-  :root {
-    --font-royal: 'Cinzel', serif;
-    --font-sans: 'Lato', sans-serif;
+  @font-face {
+    font-family: 'Playfair Display';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(https://fonts.gstatic.com/s/playfairdisplay/v37/nuFvD-vYSZviVYUb_43v7DVcm9_Vrab0.woff2) format('woff2');
   }
+
+  /* Twoje zmienne i reszta stylów */
+  
 
 @layer theme {
             :root {
@@ -86,6 +85,8 @@
     --color-royal-dark: #4B3621;
     --color-gold-main: #B38728;
   }
+
+    
 }
 /* ... reszta stylów Tailwind i Twoich animacji zostaje bez zmian ... */
     </style>
@@ -273,6 +274,7 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
 
 
 
