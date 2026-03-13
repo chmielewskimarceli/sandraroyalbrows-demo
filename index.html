@@ -17,54 +17,68 @@
     <meta property="og:type" content="website">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" media="print" onload="this.media='all'">
+<noscript>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+</noscript>
+
+<link rel="preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+<noscript>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BeautySalon",
-        "name": "Royal Brows",
-        "image": "logo.webp",
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "ul. Myśliwska 44",
-            "addressLocality": "Gdańsk",
-            "postalCode": "80-001",
-            "addressCountry": "PL"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 54.3475,
-            "longitude": 18.5912
-        },
-        "url": "https://twojadomena.pl",
-        "telephone": "+48000000000",
-        "priceRange": "$$"
-    }
-    </script>
-
+</noscript>
     <style>
 /* =========================================
    1. TAILWIND OUTPUT 1:1
    ========================================= */
-@font-face { font-family: 'Cinzel'; font-display: swap; src: local('Cinzel'); }
-@font-face { font-family: 'Playfair Display'; font-display: swap; src: local('Playfair Display'); }
-@font-face { font-family: 'Lato'; font-display: swap; src: local('Lato'); }
-@font-face { font-family: 'Font Awesome 6 Free'; font-display: swap; src: local('Font Awesome 6 Free'); }
-@font-face { font-family: 'Font Awesome 6 Brands'; font-display: swap; src: local('Font Awesome 6 Brands'); }
+/*! tailwindcss v4.2.0 | MIT License | https://tailwindcss.com */
 
+/* Dodajemy font-display: swap bezpośrednio do definicji (jeśli masz pliki lokalnie) */
+/* Jeśli zostajesz przy Google Fonts, upewnij się, że w index.html link ma &display=swap */
+
+@font-face {
+  font-family: 'Cinzel';
+  font-display: swap;
+  src: local('Cinzel');
+}
+@font-face {
+  font-family: 'Playfair Display';
+  font-display: swap;
+  src: local('Playfair Display');
+}
+@font-face {
+  font-family: 'Lato';
+  font-display: swap;
+  src: local('Lato');
+}
+
+@font-face {
+    font-family: 'Font Awesome 6 Free';
+    font-display: swap;
+    src: local('Font Awesome 6 Free');
+}
+@font-face {
+    font-family: 'Font Awesome 6 Brands';
+    font-display: swap;
+    src: local('Font Awesome 6 Brands');
+}
+
+/* Przykładowa korekta dla Playfair Display */
 @font-face {
   font-family: "Playfair Fallback";
   src: local("Times New Roman");
   ascent-override: 95%;
   descent-override: 25%;
   line-gap-override: 0%;
-  size-adjust: 105%;
+  size-adjust: 105%; /* Dostosuj ten % tak, aby tekst systemowy był tej samej szerokości */
 }
 
-.font-serif { font-family: "Playfair Display", "Playfair Fallback", serif; }
+/* W Tailwindzie/CSS używaj tego jako fallback */
+.font-serif {
+  font-family: "Playfair Display", "Playfair Fallback", serif;
+}
         
 @layer properties;
 @layer theme, base, components, utilities;
@@ -72,7 +86,8 @@
   :root, :host {
     --font-sans: "Lato", sans-serif;
     --font-serif: "Playfair Display", serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
     --color-yellow-100: oklch(97.3% 0.071 103.193);
     --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
@@ -122,8 +137,21 @@
   }
 }
 @layer base {
-  *, ::after, ::before, ::backdrop, ::file-selector-button { box-sizing: border-box; margin: 0; padding: 0; border: 0 solid; }
-  html, :host { line-height: 1.5; -webkit-text-size-adjust: 100%; tab-size: 4; font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"); font-feature-settings: var(--default-font-feature-settings, normal); font-variation-settings: var(--default-font-variation-settings, normal); -webkit-tap-highlight-color: transparent; }
+  *, ::after, ::before, ::backdrop, ::file-selector-button {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0 solid;
+  }
+  html, :host {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    tab-size: 4;
+    font-family: var(--default-font-family, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji");
+    font-feature-settings: var(--default-font-feature-settings, normal);
+    font-variation-settings: var(--default-font-variation-settings, normal);
+    -webkit-tap-highlight-color: transparent;
+  }
   hr { height: 0; color: inherit; border-top-width: 1px; }
   abbr:where([title]) { -webkit-text-decoration: underline dotted; text-decoration: underline dotted; }
   h1, h2, h3, h4, h5, h6 { font-size: inherit; font-weight: inherit; }
@@ -441,8 +469,40 @@ body { margin: 0; padding: 0; }
 .lightbox-close:hover { color: #fff; transform: rotate(90deg); }
 @media (max-width: 768px) { .lightbox-close { top: 10px; right: 10px; font-size: 2rem; } }
     </style>
+
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BeautySalon",
+        "name": "Royal Brows",
+        "image": "logo.webp",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ul. Myśliwska 44",
+            "addressLocality": "Gdańsk",
+            "postalCode": "80-001",
+            "addressCountry": "PL"
+        },
+        "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": 54.3475,
+            "longitude": 18.5912
+        },
+        "url": "https://twojadomena.pl",
+        "telephone": "+48000000000",
+        "priceRange": "$$"
+    }
+    </script>
+
+    <link rel="stylesheet" href="tailwind-output.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Lato:wght@300;400;700&display=swap" media="print" onload="this.media='all'">
     
-    </head>
+</head>
 <body class="text-royal-dark antialiased overflow-x-hidden relative">
     <svg id="waves" class="fixed inset-0 -z-10 w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="none" aria-hidden="true">
         <defs>
