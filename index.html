@@ -27,48 +27,45 @@
 
 
 
-  /* TEST: Jeśli to zadziała, to znaczy że Tailwind blokował ikony */
-  [class^="fa-"], [class*=" fa-"] {
-    font-family: 'Font Awesome 6 Free' !important;
-    font-weight: 900 !important;
-    visibility: visible !important;
-  }
-  
-  .fab {
-    font-family: 'Font Awesome 6 Brands' !important;
-    font-weight: 400 !important;
-    visibility: visible !important;
-  }
-  
+  /* Definicje pozostają bez zmian */
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  src: url('fa-brands-400.woff2') format('woff2');
+  font-weight: 400;
+  font-display: swap;
+}
 
-        
-        
-        /* 1. IKONY FONT AWESOME */
-        @font-face {
-            font-family: 'Font Awesome 6 Brands';
-            src: url('fa-brands-400.woff2') format('woff2');
-            font-weight: 400;
-            font-display: swap;
-        }
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  src: url('fa-solid-900.woff2') format('woff2');
+  font-weight: 900;
+  font-display: swap;
+}
 
-        @font-face {
-            font-family: 'Font Awesome 6 Free';
-            src: url('fa-solid-900.woff2') format('woff2');
-            font-weight: 900;
-            font-display: swap;
-        }
+/* Wymuszenie stylu - to naprawia "puste miejsce" */
+.fa-brands, .fab {
+  font-family: 'Font Awesome 6 Brands' !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+}
 
-        .fab { font-family: 'Font Awesome 6 Brands' !important; }
-        .fas, .fa-solid, .fa { font-family: 'Font Awesome 6 Free' !important; font-weight: 900 !important; }
-        .fab, .fas, .fa-solid, .fa {
-            -webkit-font-smoothing: antialiased;
-            display: inline-block;
-            font-style: normal;
-            font-variant: normal;
-            text-rendering: auto;
-            line-height: 1;
-        }
+.fa-solid, .fas, .fa {
+  font-family: 'Font Awesome 6 Free' !important;
+  font-style: normal !important;
+  font-weight: 900 !important;
+  display: inline-block !important;
+  text-decoration: none !important;
+}
 
+/* Dodatkowy fix na rozmiar - na wypadek gdyby Tailwind dawał 0px */
+i[class^="fa-"] {
+  min-width: 1em;
+  min-height: 1em;
+  line-height: 1;
+  color: inherit; /* weźmie kolor z rodzica (np. złoty) */
+}
         /* 2. CZCIONKI TEKSTOWE */
         @font-face {
             font-family: 'Cinzel';
