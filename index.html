@@ -17,13 +17,52 @@
     <meta property="og:image" content="logo.webp">
     <meta property="og:type" content="website">
 
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <link rel="preload" href="fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
     <link rel="preload" href="Cinzel-Regular.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="Lato-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
 <style>
+
+    /* Ikonki Social Media */
+@font-face {
+  font-family: 'Font Awesome 6 Brands';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fa-brands-400.woff2') format('woff2');
+}
+
+/* Ikonki Solid (Menu Hamburger) */
+@font-face {
+  font-family: 'Font Awesome 6 Free';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('fa-solid-900.woff2') format('woff2');
+}
+
+/* Klasy bazowe dla ikon */
+.fab {
+  font-family: 'Font Awesome 6 Brands';
+  font-weight: 400;
+}
+
+.fas, .fa-solid, .fa {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+
+/* Wspólne ustawienia wyświetlania ikon */
+.fab, .fas, .fa-solid, .fa {
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
   /* 2. Definicje czcionek lokalnie */
   
   /* CINZEL (używana w nagłówkach) */
