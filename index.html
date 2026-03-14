@@ -23,6 +23,26 @@
     <link rel="preload" href="Lato-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
     <style>
+
+
+
+
+  /* TEST: Jeśli to zadziała, to znaczy że Tailwind blokował ikony */
+  [class^="fa-"], [class*=" fa-"] {
+    font-family: 'Font Awesome 6 Free' !important;
+    font-weight: 900 !important;
+    visibility: visible !important;
+  }
+  
+  .fab {
+    font-family: 'Font Awesome 6 Brands' !important;
+    font-weight: 400 !important;
+    visibility: visible !important;
+  }
+  
+
+        
+        
         /* 1. IKONY FONT AWESOME */
         @font-face {
             font-family: 'Font Awesome 6 Brands';
