@@ -27,42 +27,40 @@
 
     /* Ikonki Social Media */
 @font-face {
-  font-family: 'Font Awesome 6 Brands';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('fa-brands-400.woff2') format('woff2');
-}
+    font-family: 'Font Awesome 6 Brands';
+    src: url('fa-brands-400.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+  }
 
-/* Ikonki Solid (Menu Hamburger) */
-@font-face {
-  font-family: 'Font Awesome 6 Free';
-  font-style: normal;
-  font-weight: 900;
-  font-display: swap;
-  src: url('fa-solid-900.woff2') format('woff2');
-}
+  /* IKONY SOLID (Menu Hamburger) */
+  @font-face {
+    font-family: 'Font Awesome 6 Free';
+    src: url('fa-solid-900.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+  }
 
-/* Klasy bazowe dla ikon */
-.fab {
-  font-family: 'Font Awesome 6 Brands';
-  font-weight: 400;
-}
+  /* Łącznik dla klas fab */
+  .fab {
+    font-family: 'Font Awesome 6 Brands' !important;
+  }
 
-.fas, .fa-solid, .fa {
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-}
+  /* Łącznik dla klas fas oraz fa (menu) */
+  .fas, .fa-solid, .fa {
+    font-family: 'Font Awesome 6 Free' !important;
+    font-weight: 900 !important;
+  }
 
-/* Wspólne ustawienia wyświetlania ikon */
-.fab, .fas, .fa-solid, .fa {
-  -webkit-font-smoothing: antialiased;
-  display: inline-block;
-  font-style: normal;
-  font-variant: normal;
-  text-rendering: auto;
-  line-height: 1;
-}
+  /* Podstawowe ustawienia, bez których ikona jest niewidoczna */
+  .fab, .fas, .fa-solid, .fa {
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+  }
   /* 2. Definicje czcionek lokalnie */
   
   /* CINZEL (używana w nagłówkach) */
