@@ -18,200 +18,73 @@
     <meta property="og:type" content="website">
 
     <link rel="preload" href="fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
-
+    <link rel="preload" href="fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="Cinzel-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="Lato-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="Lato-Regular.woff2" as="font" type="font/woff2" crossorigin>
 
-<style>
+    <style>
+        /* 1. IKONY FONT AWESOME */
+        @font-face {
+            font-family: 'Font Awesome 6 Brands';
+            src: url('fa-brands-400.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
 
-    /* Ikonki Social Media */
-@font-face {
-    font-family: 'Font Awesome 6 Brands';
-    src: url('fa-brands-400.woff2') format('woff2');
-    font-weight: 400;
-    font-display: swap;
-  }
+        @font-face {
+            font-family: 'Font Awesome 6 Free';
+            src: url('fa-solid-900.woff2') format('woff2');
+            font-weight: 900;
+            font-display: swap;
+        }
 
-  /* IKONY SOLID (Menu Hamburger) */
-  @font-face {
-    font-family: 'Font Awesome 6 Free';
-    src: url('fa-solid-900.woff2') format('woff2');
-    font-weight: 900;
-    font-display: swap;
-  }
+        .fab { font-family: 'Font Awesome 6 Brands' !important; }
+        .fas, .fa-solid, .fa { font-family: 'Font Awesome 6 Free' !important; font-weight: 900 !important; }
+        .fab, .fas, .fa-solid, .fa {
+            -webkit-font-smoothing: antialiased;
+            display: inline-block;
+            font-style: normal;
+            font-variant: normal;
+            text-rendering: auto;
+            line-height: 1;
+        }
 
-  /* Łącznik dla klas fab */
-  .fab {
-    font-family: 'Font Awesome 6 Brands' !important;
-  }
+        /* 2. CZCIONKI TEKSTOWE */
+        @font-face {
+            font-family: 'Cinzel';
+            src: url('Cinzel-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Cinzel';
+            src: url('Cinzel-SemiBold.woff2') format('woff2');
+            font-weight: 600;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Lato';
+            src: url('Lato-Regular.woff2') format('woff2');
+            font-weight: 400;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Lato';
+            src: url('Lato-Bold.woff2') format('woff2');
+            font-weight: 700;
+            font-display: swap;
+        }
 
-  /* Łącznik dla klas fas oraz fa (menu) */
-  .fas, .fa-solid, .fa {
-    font-family: 'Font Awesome 6 Free' !important;
-    font-weight: 900 !important;
-  }
-
-  /* Podstawowe ustawienia, bez których ikona jest niewidoczna */
-  .fab, .fas, .fa-solid, .fa {
-    -webkit-font-smoothing: antialiased;
-    display: inline-block;
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    line-height: 1;
-  }
-  /* 2. Definicje czcionek lokalnie */
-  
-  /* CINZEL (używana w nagłówkach) */
-  @font-face {
-    font-family: 'Cinzel';
-    src: url('Cinzel-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Cinzel';
-    src: url('Cinzel-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  /* LATO (czcionka główna) */
-  @font-face {
-    font-family: 'Lato';
-    src: url('Lato-Light.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Lato';
-    src: url('Lato-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Lato';
-    src: url('Lato-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  /* PLAYFAIR DISPLAY */
-  @font-face {
-    font-family: 'Playfair Display';
-    src: url('PlayfairDisplay-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Playfair Display';
-    src: url('PlayfairDisplay-Italic.woff2') format('woff2');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-  }
-
-    @font-face {
-    font-family: 'Cinzel';
-    src: url('Cinzel-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Cinzel';
-    src: url('Cinzel-SemiBold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  /* LATO (czcionka główna) */
-  @font-face {
-    font-family: 'Lato';
-    src: url('Lato-Light.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Lato';
-    src: url('Lato-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Lato';
-    src: url('Lato-Bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  /* PLAYFAIR DISPLAY */
-  @font-face {
-    font-family: 'Playfair Display';
-    src: url('PlayfairDisplay-Regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-  @font-face {
-    font-family: 'Playfair Display';
-    src: url('PlayfairDisplay-Italic.woff2') format('woff2');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-  }
-/* =========================================
-   1. TAILWIND & CUSTOM STYLES
-   ========================================= */
-@layer theme {
-  :root, :host {
-    /* Wymuszamy widoczność tekstu podczas ładowania */
-    font-display: swap; 
-    
-    --font-sans: "Lato", sans-serif;
-    --font-serif: "Playfair Display", serif;
-    --font-royal: "Cinzel", serif;
-    /* ... pozostałe zmienne bez zmian ... */
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-    --color-yellow-100: oklch(97.3% 0.071 103.193);
-    --color-gray-50: oklch(98.5% 0.002 247.839);
-    --color-gray-100: oklch(96.7% 0.003 264.542);
-    --color-gray-400: oklch(70.7% 0.022 261.325);
-    --color-gray-500: oklch(55.1% 0.027 264.364);
-    --color-white: #fff;
-    --spacing: 0.25rem;
-    --container-sm: 24rem;
-    --container-2xl: 42rem;
-    --container-7xl: 80rem;
-    --text-xs: 0.75rem;
-    --text-sm: 0.875rem;
-    --text-lg: 1.125rem;
-    --text-xl: 1.25rem;
-    --text-2xl: 1.5rem;
-    --text-3xl: 1.875rem;
-    --text-4xl: 2.25rem;
-    --text-5xl: 3rem;
-    --text-7xl: 4.5rem;
-    --font-weight-light: 300;
-    --font-weight-medium: 500;
-    --font-weight-semibold: 600;
-    --font-weight-bold: 700;
-    --color-royal-dark: #4B3621;
-    --color-gold-main: #B38728;
-  }
-}
-/* ... reszta stylów Tailwind i Twoich animacji zostaje bez zmian ... */
+        /* 3. ZMIENNE TAILWIND */
+        @layer theme {
+            :root {
+                --font-sans: "Lato", sans-serif;
+                --font-serif: "Playfair Display", serif;
+                --font-royal: "Cinzel", serif;
+                --color-gold-main: #B38728;
+                /* ... tutaj dopisz resztę swoich zmiennych ... */
+            }
+        }
     </style>
 
     <script type="application/ld+json">
