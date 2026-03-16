@@ -1,0 +1,24 @@
+<IfModule mod_expires.c>
+  ExpiresActive On
+
+  # Czcionki - to załatwi błąd "Efficient Cache Policy" dla woff2
+  ExpiresByType font/woff2 "access plus 1 year"
+  
+  # Obrazy WebP i Logo
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/x-icon "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+
+  # CSS i JS
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  
+  # HTML - odświeżaj od razu
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+# Włączamy kompresję (Gzip)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript
+</IfModule>
