@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Menu & Navbar (Ładuje się natychmiast) ---
+
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     const icon = btn.querySelector('i');
@@ -27,10 +27,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 });
 
-// --- Optymalizacja Animacji Fal ---
-// Czekamy, aż przeglądarka narysuje stronę (LCP), żeby nie dławić FCP/LCP
+
 window.addEventListener('load', () => {
-    // Delikatne opóźnienie, by oddać oddech głównego wątku
+
     setTimeout(() => {
         const svg = document.getElementById("waves");
         if (!svg) return;
@@ -110,7 +109,7 @@ window.addEventListener('load', () => {
         }
 
         requestAnimationFrame(animate);
-    }, 100); // 100ms opóźnienia ratuje nam wynik PageSpeed
+    }, 100); 
 });
 
 function openLightbox(src) {
