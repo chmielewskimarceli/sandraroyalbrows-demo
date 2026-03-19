@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Menu & Navbar (Ładuje się natychmiast) ---
+
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     const icon = btn.querySelector('i');
@@ -27,10 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 });
 
-// --- Optymalizacja Animacji Fal ---
-// Czekamy, aż przeglądarka narysuje stronę (LCP), żeby nie dławić FCP/LCP
 window.addEventListener('load', () => {
-    // Delikatne opóźnienie, by oddać oddech głównego wątku
+
     setTimeout(() => {
         const svg = document.getElementById("waves");
         if (!svg) return;
@@ -76,12 +74,16 @@ window.addEventListener('load', () => {
             });
         }
 
-        let lastTime = performance.now();
+        let lastTime = 0;
 
         function animate(currentTime) {
-            const deltaTime = (currentTime - lastTime) / 16; 
+
+            if (!lastTime) lastTime = currentTime;
+            
+            const deltaTime = (currentTime - lastTime) / 16.666; 
             lastTime = currentTime;
-            const step = deltaTime > 2 ? 1 : deltaTime;
+            
+            const step = Math.min(deltaTime, 3);
 
             for (let i = 0; i < lines.length; i++) {
                 const line = lines[i];
@@ -89,8 +91,10 @@ window.addEventListener('load', () => {
                 line.cp1y += line.direction * line.speed * step;
                 line.cp2y -= line.direction * line.speed * step;
 
-                if (line.cp1y > line.y + line.baseAmplitude1 || line.cp1y < line.y - line.baseAmplitude1) {
-                    line.direction *= -1;
+                if (line.cp1y > line.y + line.baseAmplitude1) {
+                    line.direction = -1;
+                } else if (line.cp1y < line.y - line.baseAmplitude1) {
+                    line.direction = 1;
                 }
 
                 const dist = Math.abs(mouseY - line.y);
@@ -100,17 +104,14 @@ window.addEventListener('load', () => {
                 line.cp2y += (mouseY - line.cp2y) * 0.05 * influence * step;
 
                 line.path.setAttribute("d", 
-                    "M0 " + line.y + 
-                    "C" + line.cp1x + " " + line.cp1y + "," + 
-                    line.cp2x + " " + line.cp2y + "," + 
-                    width + " " + line.y
+                    `M0 ${line.y} C${line.cp1x} ${line.cp1y}, ${line.cp2x} ${line.cp2y}, ${width} ${line.y}`
                 );
             }
             requestAnimationFrame(animate);
         }
 
         requestAnimationFrame(animate);
-    }, 100); // 100ms opóźnienia ratuje nam wynik PageSpeed
+    }, 100); 
 });
 
 function openLightbox(src) {
