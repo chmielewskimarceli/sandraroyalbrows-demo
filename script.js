@@ -1,20 +1,22 @@
 document.addEventListener('DOMContentLoaded', () => {
-
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     const icon = btn.querySelector('i');
 
     btn.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-        if (menu.classList.contains('hidden')) {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        } else {
+
+        menu.classList.toggle('open');
+        
+
+        if (menu.classList.contains('open')) {
             icon.classList.remove('fa-bars');
             icon.classList.add('fa-times');
+        } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
         }
     });
-
+    
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
