@@ -5,15 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btn.addEventListener('click', () => {
 
-        menu.classList.toggle('open');
+        menu.classList.toggle('open'); 
         
-
         if (menu.classList.contains('open')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
+            icon.classList.replace('fa-bars', 'fa-times');
         } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+            icon.classList.replace('fa-times', 'fa-bars');
         }
     });
     
