@@ -9,16 +9,18 @@ body {
     --brown-dark: #4B3621;
 }
 
+
 #mobile-menu {
-    max-height: 0 !important;
-    opacity: 0 !important;
-    overflow: hidden !important;
+    max-height: 0;
+    overflow: hidden;
     transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    display: block !important;
 }
 
 #mobile-menu.open {
-    max-height: 500px !important;
-    opacity: 1 !important;
+    max-height: 500px;
+    opacity: 1;
 }
 
 .gold-text-gradient {
