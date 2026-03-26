@@ -19,7 +19,7 @@ body {
 
 #mobile-menu.open {
     max-height: 500px; 
-    opacity: 1;
+    opacity: 0;
 }
 
 .gold-text-gradient {
