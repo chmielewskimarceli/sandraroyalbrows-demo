@@ -6,9 +6,14 @@
     <title>Royal Brows Gdańsk | Microblading i Makijaż Permanentny</title>
     <meta name="description" content="Profesjonalny microblading i makijaż permanentny w Gdańsku. Sandra Royal Brows – wydobądź naturalne piękno swoich brwi. Zarezerwuj wizytę online!">
     
-    <link rel="preload" as="image" href="hero.webp" fetchpriority="high">
+    <!-- LCP: preload tylko tego co jest widoczne w pierwszym widoku -->
+    <link rel="preload" as="image" href="hero.webp" fetchpriority="high" media="(min-width: 768px)">
     <link rel="preload" as="image" href="logo.webp" fetchpriority="high">
-    
+    <!-- Preload tylko fontów potrzebnych do LCP (h1 = Playfair Display, nagłówek = Cinzel) -->
+    <link rel="preload" href="Cinzel-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Lato-Regular potrzebny do tekstu pod h1 -->
+    <link rel="preload" href="Lato-Regular.woff2" as="font" type="font/woff2" crossorigin>
+
     <link rel="canonical" href="https://twojadomena.pl/">
     <link rel="icon" type="image/webp" href="logo.webp">
     <link rel="apple-touch-icon" href="logo.webp">
@@ -17,14 +22,6 @@
     <meta property="og:description" content="Sztuka pięknego spojrzenia w Gdańsku. Zapraszam na profesjonalną stylizację brwi.">
     <meta property="og:image" content="logo.webp">
     <meta property="og:type" content="website">
-
-
-    <link rel="preload" href="Cinzel-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="Cinzel-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="Lato-Regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="Lato-Bold.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
     <style>
 
@@ -113,7 +110,7 @@ i[class^="fa-"] {
         @layer theme {
             :root {
                 --font-sans: "Lato", sans-serif;
-                --font-serif: "Playfair Display", serif;
+                --font-serif: "Cinzel", serif;
                 --font-royal: "Cinzel", serif;
                 --color-gold-main: #B38728;
 
@@ -484,7 +481,8 @@ body { margin: 0; padding: 0; }
 @keyframes fadeInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 .fade-in-up { animation: fadeInUp 1s ease-out forwards; }
 .fade-in-right { animation: fadeInRight 1s ease-out 0.3s forwards; opacity: 0; }
-.animate-marquee { display: flex; width: max-content; will-change: transform; }
+@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-1944px); } }
+.animate-marquee { display: flex; width: max-content; animation: marquee 30s linear infinite; will-change: transform; }
 .portfolio-item { position: relative; cursor: pointer; overflow: hidden; border-radius: 8px; flex-shrink: 0; width: 300px; height: 400px; margin-right: 24px; }
 .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
 .portfolio-overlay { position: absolute; inset: 0; background: rgba(179, 135, 40, 0.2); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
@@ -539,7 +537,7 @@ body { margin: 0; padding: 0; }
             <div class="flex justify-between items-center h-full">
                 <div class="flex-shrink-0 flex items-center group">
                     <a href="#" class="flex items-center gap-3">
-                        <img src="logo.webp" alt="Royal Brows - Logo" width="160" height="48" class="h-10 w-auto md:h-12 transition-transform duration-300 group-hover:scale-110">
+                        <img src="logo.webp" alt="Royal Brows - Logo" width="160" height="48" class="h-10 w-auto md:h-12 transition-transform duration-300 group-hover:scale-110" fetchpriority="high">
                         <span class="font-royal text-lg md:text-xl min-[1130px]:text-3xl font-bold tracking-wide gold-text-gradient">
                             Royal Brows
                         </span>
@@ -598,7 +596,7 @@ body { margin: 0; padding: 0; }
     <main class="pt-20 min-h-screen flex items-center relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <article class="text-center md:text-left space-y-10 fade-in-up">
+                <article class="text-center md:text-left space-y-10">
                     <div class="inline-block border-b border-[#B38728] pb-2">
                         <p class="text-[#B38728] font-light tracking-[0.4em] text-xs uppercase text-center">Ekspertka Microbladingu w Gdańsku</p>
                     </div>
@@ -679,57 +677,3 @@ body { margin: 0; padding: 0; }
     <script src="script.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
