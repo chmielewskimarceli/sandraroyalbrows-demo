@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const halfWidth = 1944;
         let x = 0;
         let lastTime = null;
-        const speed = 0.05; 
+        const speed = 0.1; 
 
         function tick(timestamp) {
             if (!lastTime) lastTime = timestamp;
