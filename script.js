@@ -1,55 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
- 
+
     const marquee = document.querySelector('.animate-marquee');
     if (marquee) {
-   
-        const initMarquee = () => {
-            const totalWidth = marquee.scrollWidth;  
-            const halfWidth = totalWidth / 2;        
-            let x = 0;
-            let lastTime = null;
-            const speed = 0.8; 
 
-            function tick(timestamp) {
-                if (!lastTime) lastTime = timestamp;
-                const delta = timestamp - lastTime;
-                lastTime = timestamp;
+  
+        const halfWidth = 1944;
+        let x = 0;
+        let lastTime = null;
+        const speed = 0.05; 
 
-                x -= speed * delta;
+        function tick(timestamp) {
+            if (!lastTime) lastTime = timestamp;
+            const delta = Math.min(timestamp - lastTime, 50);
+            lastTime = timestamp;
 
-                if (x <= -halfWidth) {
-                    x += halfWidth;
-                }
+            x -= speed * delta;
 
-                marquee.style.transform = `translateX(${x}px)`;
-                requestAnimationFrame(tick);
+            if (x <= -halfWidth) {
+                x += halfWidth;
             }
 
+            marquee.style.transform = `translateX(${x}px)`;
             requestAnimationFrame(tick);
-        };
-
-
-        const imgs = marquee.querySelectorAll('img');
-        let loaded = 0;
-        if (imgs.length === 0) {
-            initMarquee();
-        } else {
-            imgs.forEach(img => {
-                if (img.complete) {
-                    loaded++;
-                    if (loaded === imgs.length) initMarquee();
-                } else {
-                    img.addEventListener('load', () => {
-                        loaded++;
-                        if (loaded === imgs.length) initMarquee();
-                    }, { once: true });
-                    img.addEventListener('error', () => {
-                        loaded++;
-                        if (loaded === imgs.length) initMarquee();
-                    }, { once: true });
-                }
-            });
         }
+
+        requestAnimationFrame(tick);
     }
 
     const btn = document.getElementById('mobile-menu-btn');
