@@ -484,8 +484,7 @@ body { margin: 0; padding: 0; }
 @keyframes fadeInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
 .fade-in-up { animation: fadeInUp 1s ease-out forwards; }
 .fade-in-right { animation: fadeInRight 1s ease-out 0.3s forwards; opacity: 0; }
-@keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-.animate-marquee { display: flex; width: max-content; animation: marquee 30s linear infinite; will-change: transform; }
+.animate-marquee { display: flex; width: max-content; will-change: transform; }
 .portfolio-item { position: relative; cursor: pointer; overflow: hidden; border-radius: 8px; flex-shrink: 0; width: 300px; height: 400px; margin-right: 24px; }
 .portfolio-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease; }
 .portfolio-overlay { position: absolute; inset: 0; background: rgba(179, 135, 40, 0.2); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
