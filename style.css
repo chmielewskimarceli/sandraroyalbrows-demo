@@ -105,20 +105,15 @@ body {
 }
 
 @keyframes marquee {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-1944px, 0, 0); } 
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
-
+ 
 .animate-marquee {
-    display: inline-flex; 
+    display: flex;
     width: max-content;
-    flex-shrink: 0;
     animation: marquee 30s linear infinite;
     will-change: transform;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transform-style: preserve-3d;
-    transform-style: preserve-3d;
 }
 
 .portfolio-item {
